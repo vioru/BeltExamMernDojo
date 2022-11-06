@@ -1,23 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import {BrowserRouter, Route, Switch} from 'react-router-dom';
+import AllPirates from './components/AllPirates';
+import NewPirate from './components/newPirate';
+import Pirate from './components/Pirate';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+            <BrowserRouter>
+        <Switch>
+        <Route path="/"  exact render={ ()=> <AllPirates/>}/>
+        <Route path="/new" exact render={() => <NewPirate />} />
+        <Route path="/:id" exact render={() => <Pirate />} />
+        {/*<Route path="/new" exact render={() => <NuevoAutor />} />
+        <Route path="/edit/:id" exact render={() => <UpdateAutor />} />
+        <Route path="/error" exact render={() => <Error/>} />
+        <Route path="*" render={() => <Error /> } /> */}
+        </Switch>
+      </BrowserRouter>
+
+
+
+
+
     </div>
   );
 }
