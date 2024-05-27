@@ -5,12 +5,12 @@ import { useHistory,Link } from "react-router-dom";
 
 const NewPirate = () => {
 
-    const [pirates, setpirates] = useState([]);
+
     const [name, setname] = useState("");
     const [image, setImage] = useState("");
     const [treasure, setTreasure] = useState("");
     const [phrase, setphrase] = useState("");
-    const [position, setposition] = useState([]);
+    const [position, setposition] = useState("");
     const [pepLeg, setpepLeg] = useState(true);
     const [eyePatch, seteyePatch] = useState(true);
     const [hookHand, sethookHand] = useState(true);
@@ -33,9 +33,8 @@ const NewPirate = () => {
 
 
 const theCaptain = e =>{
-    axios.get("http://localhost:8000/api/pirates")
+    axios.get(url)
     .then(res =>{ console.log("data",res.data);
-    setpirates(res.data);
         const newList = res.data.filter(pirates => pirates.position === "Capitan");
         console.log(newList);
         if(newList.length > 0  ){
@@ -51,7 +50,7 @@ const theCaptain = e =>{
     
         e.preventDefault();
 
-        axios.post("http://localhost:8000/api/pirates", {
+        axios.post(url, {
             name,
             image,
             phrase,

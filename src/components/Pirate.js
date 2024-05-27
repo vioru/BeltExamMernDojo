@@ -97,7 +97,7 @@ const Pirate = () => {
 
                         <Link to="/" className="btn btn-primary mx-2">Regresar</Link>
                         {pirate.position =="Capitan"? 
-                                                <button className="btn btn-danger" onClick={() => Deletepirates(pirate._id)} >Renunciar a ser Capitan</button>
+                                                <button className="btn btn-danger" onClick={() => Deletepirates(pirate._id)} >Me tiro por la borda</button>
                         :
                         <button className="btn btn-danger" onClick={() => Deletepirates(pirate._id)} >Que camine por la plancha</button>
 }
